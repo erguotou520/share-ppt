@@ -1,0 +1,19 @@
+version: 2.1
+jobs:
+  build:
+    docker: 
+      - image: circleci/node:10.13.0 # the primary container, where your job's commands are run
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: install
+          command: yarn
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run:
+          name: build
+          command: yarn build

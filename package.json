@@ -1,0 +1,16 @@
+{
+  "name": "devops-noops-ppt",
+  "version": "0.0.1",
+  "description": "devops & noops",
+  "main": "slide.md",
+  "repository": "git@github.com:erguotou520/devops-noops-ppt.git",
+  "author": "erguotou <erguotou525@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodeppt serve slide.md",
+    "build": "nodeppt build slide.md"
+  },
+  "dependencies": {
+    "nodeppt": "^2.1.5"
+  }
+}

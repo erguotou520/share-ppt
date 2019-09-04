@@ -1,0 +1,32 @@
+
+language: node_js
+
+node_js:
+  - "10"
+
+branches:
+  only:
+    - master
+
+before_install:
+  - git config --global push.default matching
+  - git config --global user.name "erguotou"
+  - git config --global user.email "erguotou525@gmail.com"
+  - sed -i'' "/^ *repo/s~github\.com~${ACCESS_TOKEN}@github.com~" _config.yml
+
+install:
+  - yarn
+
+script:
+  yarn build
+
+after_success:
+  - cd dist
+  - git init
+  - git add ./ -A
+  - git commit -m "Auto build by Travis CI"
+  - git push -u https://$GH_TOKEN@github.com/erguotou520/devops-noops-ppt.git HEAD:gh-pages --force
+
+cache:
+  directories:
+    - node_modules
