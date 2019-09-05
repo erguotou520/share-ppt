@@ -9,11 +9,7 @@ branches:
     - master
 
 notifications:
-  webhooks:
-    urls:
-      - https://oapi.dingtalk.com/robot/send?access_token=db2c41758f3def878e395308a96948c8581be27b7996622105910dab05fdb76c
-    on_success: always
-    on_failure: always
+  webhooks: https://oapi.dingtalk.com/robot/send?access_token=15ebd4169a27e4c3150a8d1584566d0938ae4e4ad09f7d4664bdb32cd38ff376
 
 install:
   - yarn
