@@ -8,6 +8,13 @@ branches:
   only:
     - master
 
+notifications:
+  webhooks:
+    urls:
+      - https://oapi.dingtalk.com/robot/send?access_token=db2c41758f3def878e395308a96948c8581be27b7996622105910dab05fdb76c
+    on_success: always
+    on_failure: always
+
 install:
   - yarn
 
@@ -22,13 +29,6 @@ deploy:
   keep_history: true
   on:
     branch: master
-
-notifications:
-  webhooks:
-    urls:
-      - https://oapi.dingtalk.com/robot/send?access_token=db2c41758f3def878e395308a96948c8581be27b7996622105910dab05fdb76c
-    on_success: always
-    on_failure: always
 
 cache:
   directories:
