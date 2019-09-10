@@ -1,6 +1,6 @@
 title: DevOps & NoOps
 speaker: erguotou
-url: https://github.com/erguotou520/devops-noops-ppt
+url: https://github.com/erguotou520/share-ppt
 
 <slide class="bg-blue aligncenter" video="https://webslides.tv/static/videos/working.mp4 poster='https://webslides.tv/static/images/working.jpg' .dark">
 
@@ -8,7 +8,7 @@ url: https://github.com/erguotou520/devops-noops-ppt
 
 By erguotou {.text-intro}
 
-[:fa-github: Github](https://github.com/erguotou520/devops-noops-ppt){.button.ghost}
+[:fa-github: Github](https://github.com/erguotou520/share-ppt){.button.ghost}
 
 <slide class="aligncenter" image="">
 # CI/CD

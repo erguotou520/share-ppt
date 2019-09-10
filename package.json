@@ -1,14 +1,13 @@
 {
-  "name": "devops-noops-ppt",
+  "name": "share-ppt",
   "version": "0.0.1",
-  "description": "devops & noops",
-  "main": "index.md",
-  "repository": "git@github.com:erguotou520/devops-noops-ppt.git",
+  "description": "Shared ppts",
+  "repository": "git@github.com:erguotou520/share-ppt.git",
   "author": "erguotou <erguotou525@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "nodeppt serve index.md",
-    "build": "nodeppt build index.md"
+    "dev": "nodeppt serve raspberry.md",
+    "build": "nodeppt build ops.md && nodeppt build raspberry.md"
   },
   "dependencies": {
     "nodeppt": "^2.1.5"
