@@ -10,16 +10,20 @@ By erguotou {.text-intro}
 
 [:fa-github: Github](https://github.com/erguotou520/shares-ppt){.button.ghost}
 
-<slide class="slide-top" image="https://www.raspberrypi.org/homepage-9df4b/static/hero-shot-3ad1d131ea382fa6f006b18aefc820aa.png .right-bottom">
-# 什么是树莓派
+<slide class="bg-blue aligncenter" image="https://www.raspberrypi.org/homepage-9df4b/static/hero-shot-3ad1d131ea382fa6f006b18aefc820aa.png .dark">
+# 它不是一个吃的！{.text-landing}
 
-一个只有信用卡大小的卡片式电脑
+<slide class="slide-top" image="https://www.raspberrypi.org/homepage-9df4b/static/hero-shot-3ad1d131ea382fa6f006b18aefc820aa.png .right-bottom">
+# 那它到底是个啥？
+
+一个只有信用卡大小的卡片式电脑{.text-intro.animated.fadeInUp.delay-1s}
 
 * 迷你{.flipInX}
 * Arm芯片{.flipInX}
 * GPIO{.flipInX}
 * 高扩展性{.flipInX}
 * 可玩性{.flipInX}
+  {.text-cols.build}
 
 <slide class="aligncenter" image="">
 # 我可以用树莓派做什么
@@ -65,12 +69,12 @@ By erguotou {.text-intro}
 
 ### Everything you can image
 :::
+
 <slide class="aligncenter" image="">
 # 树莓派上都有些什么
+各个版本硬件会有些差异{.text-subtitle}
 
-各个版本硬件会有些差异
-
-![](https://lingshunlab.com/wp-content/uploads/2019/01/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7-2019-01-05-%E4%B8%8A%E5%8D%8810.21.16-1024x727.png){.size-60}
+![](https://lingshunlab.com/wp-content/uploads/2019/01/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7-2019-01-05-%E4%B8%8A%E5%8D%8810.21.16-1024x727.png){.size-40}
 
 <slide class="" image="">
 :::column
@@ -85,13 +89,34 @@ By erguotou {.text-intro}
 ![](https://www.raspberrypi.org/app/uploads/2019/09/CPUK19_PHOTO4134-500x377.jpg){.side-40.right}
 :::
 
+<slide class="aligncenter" image="">
+# 它的兄弟姐妹们
+
+:::flexblock
+### 香橙派
+![](https://ae01.alicdn.com/kf/HTB1Lx9rbvLsK1Rjy0Fbq6xSEXXaC/Orange-Pi-3-H6-2GB-LPDDR3-AP6256-Bluetooth5-0-4-USB3-0-Support-Android-7-0.jpg_640x640.jpg)
+
+---
+### 香蕉派
+![](https://cdn-reichelt.de/bilder/web/artikel_ws/A300/BANANA_PI_01.jpg)
+
+---
+
+### Nano PI
+![](https://www.armbian.com/wp-content/uploads/2018/02/nanopineo.png)
+
+---
+
+### Arduino
+![](https://cdn.sparkfun.com/assets/9/1/e/4/8/515b4656ce395f8a38000000.png)
+:::
+
 <slide class="content-center" image="">
 # 一个亮灯demo
 ---
 
 ```python
 import RPi.GPIO as GPIO
-
 import time
 
 GPIO.setmode(GPIO.BOARD)
@@ -103,12 +128,40 @@ GPIO.cleanup()
 ```
 
 <slide class="content-center" image="">
+# 来个升级版
+
+呼吸灯效果{.text-subtitle}
+
+---
+
+```python
+import RPi.GPIO as GPIO
+import time
+from math import sin, pi
+
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(11, GPIO.OUT)
+p = GPIO.PWM(11, 500)
+p.start(0)
+try:
+    while 1:
+        for angle in range(0, 360, 1):
+            duty = int((sin((angle / 180.0 - 0.5) * pi) + 1) * 50)
+            p.ChangeDutyCycle(duty)
+            time.sleep(0.003)
+except KeyboardInterrupt:
+    p.stop()
+    GPIO.cleanup()
+```
+
+<slide class="content-center" image="">
 # 一个蜂鸣器demo
 ---
 
 ```python
-import time
 import RPi.GPIO as GPIO
+import time
+
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(16, GPIO.OUT)
 
